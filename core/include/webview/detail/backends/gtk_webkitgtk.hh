@@ -215,6 +215,16 @@ protected:
     return {};
   }
 
+  noresult set_decorated_impl(int decorated) override {
+    gtk_window_set_decorated(GTK_WINDOW(m_window), decorated);
+    return {};
+  }
+
+  noresult set_fullscreen_impl() override {
+    gtk_window_fullscreen(GTK_WINDOW(m_window));
+    return {};
+  }
+
   noresult set_title_impl(const std::string &title) override {
     gtk_window_set_title(GTK_WINDOW(m_window), title.c_str());
     return {};

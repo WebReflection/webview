@@ -114,6 +114,9 @@ WEBVIEW_API void *webview_get_window(webview_t w);
 WEBVIEW_API void *webview_get_native_handle(webview_t w,
                                             webview_native_handle_kind_t kind);
 
+WEBVIEW_API webview_error_t webview_set_decorated(webview_t w, int decorated);
+WEBVIEW_API webview_error_t webview_set_fullscreen(webview_t w);
+
 /**
  * Updates the title of the native window.
  *

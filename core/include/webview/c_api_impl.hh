@@ -165,6 +165,17 @@ WEBVIEW_API void *webview_get_native_handle(webview_t w,
   return nullptr;
 }
 
+WEBVIEW_API webview_error_t webview_set_decorated(webview_t w, int decorated) {
+  using namespace webview::detail;
+  return api_filter(
+      [=] { return cast_to_webview(w)->set_decorated(decorated); });
+}
+
+WEBVIEW_API webview_error_t webview_set_fullscreen(webview_t w) {
+  using namespace webview::detail;
+  return api_filter([=] { return cast_to_webview(w)->set_fullscreen(); });
+}
+
 WEBVIEW_API webview_error_t webview_set_title(webview_t w, const char *title) {
   using namespace webview::detail;
   if (!title) {
