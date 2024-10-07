@@ -131,6 +131,10 @@ window.__webview__.onUnbind(" +
   noresult run() { return run_impl(); }
   noresult terminate() { return terminate_impl(); }
   noresult dispatch(std::function<void()> f) { return dispatch_impl(f); }
+  noresult set_decorated(int decorated) {
+    return set_decorated_impl(decorated);
+  }
+  noresult set_fullscreen() { return set_fullscreen_impl(); }
   noresult set_title(const std::string &title) { return set_title_impl(title); }
 
   noresult set_size(int width, int height, webview_hint_t hints) {
@@ -154,6 +158,8 @@ protected:
   virtual noresult run_impl() = 0;
   virtual noresult terminate_impl() = 0;
   virtual noresult dispatch_impl(std::function<void()> f) = 0;
+  virtual noresult set_decorated_impl(int decorated) = 0;
+  virtual noresult set_fullscreen_impl() = 0;
   virtual noresult set_title_impl(const std::string &title) = 0;
   virtual noresult set_size_impl(int width, int height,
                                  webview_hint_t hints) = 0;
